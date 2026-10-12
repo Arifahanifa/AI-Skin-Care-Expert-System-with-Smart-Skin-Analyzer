@@ -210,7 +210,7 @@ VITE_API_BASE_URL=https://your-backend.onrender.com
 
 ## 9. Deployment & Repository Links
 
-* **Live Public Website:** Pending deployment configuration (see summary below)
+* **Live Public Website:** https://ai-skin-care-expert-frontend.onrender.com/
 * **GitHub Repository:** [https://github.com/Arifahanifa/ai-skin-care-expert-system](https://github.com/Arifahanifa/ai-skin-care-expert-system)
 
 ---
