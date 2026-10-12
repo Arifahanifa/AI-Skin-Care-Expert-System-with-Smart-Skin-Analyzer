@@ -1,0 +1,75 @@
+# ==========================================
+# Git Ignore for AI Skin Care Expert System
+# ==========================================
+
+# Secrets & Environment Variables (NEVER COMMIT)
+.env
+.env.local
+.env.*.local
+*.env
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Database (NEVER COMMIT USER DATA OR PRIVATE ASSESSMENTS)
+*.db
+*.sqlite
+*.sqlite3
+backend/skincare_expert.db
+skincare_expert.db
+
+# Frontend Node & Build Output
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# User Uploads & Media
+scratch/
+*.webm
+*.mp4
+*.png
+*.jpg
+*.jpeg
+!frontend/public/**
+!frontend/src/assets/**
+
+# Ensure Haar Cascade XML is tracked
+!backend/ai_engine/data/haarcascade_frontalface_default.xml
+
+# IDE, Editor & OS
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db

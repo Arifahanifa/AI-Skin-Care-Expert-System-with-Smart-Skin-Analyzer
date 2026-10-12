@@ -1,0 +1,28 @@
+services:
+  # Python Flask Backend Web Service
+  - type: web
+    name: ai-skin-care-expert-backend
+    runtime: python
+    buildCommand: "pip install -r backend/requirements.txt"
+    startCommand: "cd backend && gunicorn app:app --bind 0.0.0.0:$PORT"
+    envVars:
+      - key: FLASK_DEBUG
+        value: "0"
+      - key: CORS_ORIGINS
+        value: "*"
+
+  # React Vite Frontend Static Site
+  - type: static
+    name: ai-skin-care-expert-frontend
+    buildCommand: "cd frontend && npm install && npm run build"
+    staticPublishPath: "frontend/dist"
+    routes:
+      - type: rewrite
+        source: "/*"
+        destination: "/index.html"
+    envVars:
+      - key: VITE_API_BASE_URL
+        fromService:
+          type: web
+          name: ai-skin-care-expert-backend
+          property: host
