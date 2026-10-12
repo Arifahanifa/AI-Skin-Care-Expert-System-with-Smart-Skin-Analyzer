@@ -18,8 +18,6 @@ services:
   - type: web
     name: ai-skin-care-expert-frontend
     runtime: static
-    plan: free
-    region: oregon
     branch: main
     rootDir: frontend
     buildCommand: "npm install && npm run build"
