@@ -1,7 +1,30 @@
 const rawBase = (import.meta.env.VITE_API_BASE_URL || '').trim();
-const API_BASE = rawBase
-  ? (rawBase.endsWith('/api') ? rawBase : `${rawBase.replace(/\/+$/, '')}/api`)
-  : '/api';
+
+function getApiBase() {
+  let base = rawBase;
+
+  // Handle Render internal service name injection (e.g. 'ai-skin-care-expert-backend')
+  if (base === 'ai-skin-care-expert-backend') {
+    base = 'https://ai-skin-care-expert-backend.onrender.com';
+  } else if (base && !base.startsWith('http://') && !base.startsWith('https://') && !base.startsWith('/')) {
+    base = `https://${base}`;
+  }
+
+  // Automatic fallback when deployed to production domains without build env var
+  if (!base && typeof window !== 'undefined') {
+    const hostname = window.location.hostname;
+    if (hostname.includes('onrender.com') || hostname.includes('vercel.app')) {
+      base = 'https://ai-skin-care-expert-backend.onrender.com';
+    }
+  }
+
+  if (base) {
+    return base.endsWith('/api') ? base : `${base.replace(/\/+$/, '')}/api`;
+  }
+  return '/api';
+}
+
+const API_BASE = getApiBase();
 
 function getAuthHeader() {
   const token = localStorage.getItem('dermatwin_token');
