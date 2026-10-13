@@ -1,4 +1,4 @@
-# AI Skin Care Expert System with Dynamic Skin Digital Twin
+# AI Skin Care Expert System with Smart Skin Analyzer
 
 ### Real-Time Face Analysis Without Machine Learning + Personalized Skin Recovery Planner
 
